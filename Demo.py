@@ -65,7 +65,7 @@ def drawFakeRandom(past_points, min_distance):
 drawArena()
 
 #How many points/calls to the random and no-so-random functions.
-for i in range(500):
+for i in range(750):
     drawRandom()
     drawFakeRandom(past_points,17)
 
