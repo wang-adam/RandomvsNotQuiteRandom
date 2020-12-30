@@ -5,8 +5,6 @@ from array import *
 import math
 from tkinter import * 
 
-
-FPS = 300
 BLACK = (0,0,0)
 WHITE = (255,255,255)
 
@@ -21,11 +19,10 @@ display_surf = pygame.display.set_mode((window_width,window_height))
 def main():
     pygame.init()
     global display_surf
-    FPSCLOCK = pygame.time.Clock()
     display_surf = pygame.display.set_mode((window_width,window_height))
     pygame.display.set_caption('Random vs Fake Random')
 
-#Draws the arena. 
+#Draws the black window and divider line. 
 def drawArena():
     display_surf.fill((0,0,0))
     #Draw outline of arena
@@ -33,15 +30,17 @@ def drawArena():
     #Draw center line
     pygame.draw.line(display_surf, WHITE, ((window_width/2),0),((window_width/2),window_height),4)
 
-
+#Draws the random points on the left side of the divider.
 def drawRandom():
     xcor = random.randint(0,(window_width-1)//2)
     ycor = random.randint(0,window_height)
     pygame.draw.circle(display_surf,WHITE,(xcor,ycor),point_thickness)
 
 
+#Set of all not-so-random points
 past_points = set()
 
+#Draws the "random" points such that they are at least a minimum distance away from each other. 
 def drawFakeRandom(past_points, min_distance):
     drawn = False
     while not drawn:
@@ -62,14 +61,15 @@ def drawFakeRandom(past_points, min_distance):
             drawn = True
                 
 
-#Draws the starting position of the Arena
+
 drawArena()
 
+#How many points/calls to the random and no-so-random functions.
 for i in range(500):
     drawRandom()
     drawFakeRandom(past_points,17)
 
-#Main Game Loop
+#Main Loop
 while True:
     for event in pygame.event.get():
         if event.type == quit:
