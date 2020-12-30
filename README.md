@@ -1,2 +1,6 @@
 # RandomvsNotQuiteRandom
-Demo that compares random points and seemingly random points that are not actually random.
+Demo that visualizes random points and compares them to seemingly random points that are not actually random.
+
+The seemingly random point are not actually random becuase they have a declination to crowd together.
+
+Idea inspired by How Not To Be Wrong: The Power of Mathematical Thinking by Jordan Ellenberg.
