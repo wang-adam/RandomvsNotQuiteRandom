@@ -70,12 +70,14 @@ for i in range(750):
     drawFakeRandom(past_points,17)
 
 #Main Loop
-while True:
+running = True
+while running:
     for event in pygame.event.get():
-        if event.type == quit:
+        if event.type == pygame.QUIT:
+            running = False
             pygame.quit()
-            sys.exit()    
-    pygame.display.update()
+            sys.exit()  
+        pygame.display.update()
 
 
 if __name__=='__main__':
