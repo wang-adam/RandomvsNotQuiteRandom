@@ -3,7 +3,8 @@ from pygame.locals import *
 import random
 from array import *
 import math
-from tkinter import * 
+from tkinter import *
+from pygame.event import wait
 
 BLACK = (0,0,0)
 WHITE = (255,255,255)
@@ -64,20 +65,34 @@ def drawFakeRandom(past_points, min_distance):
 
 drawArena()
 
-#How many points/calls to the random and no-so-random functions.
-for i in range(750):
-    drawRandom()
-    drawFakeRandom(past_points,17)
+def drawDots():
+    i=0
+    #How many points/calls to the random and no-so-random functions.
+    while (i< 1000):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit() 
+        drawRandom()
+        drawFakeRandom(past_points,17)
+        wait(4)
+        pygame.display.update()
+        i = i+1
+        
+
 
 #Main Loop
-running = True
-while running:
+while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
             pygame.quit()
             sys.exit()  
-        pygame.display.update()
+    drawDots()
+    pygame.display.flip()
+    wait(1000)
+    drawArena()
+    past_points.clear()
+    
 
 
 if __name__=='__main__':
