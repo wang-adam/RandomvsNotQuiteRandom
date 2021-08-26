@@ -6,4 +6,4 @@ The seemingly random points are not actually random becuase they have a declinat
 
 Idea inspired by How Not To Be Wrong: The Power of Mathematical Thinking by Jordan Ellenberg.
 
-![Image]{"DemoRandomvsNot.png"}
+![Image]{DemoRandomvsNot.png}
